@@ -80,9 +80,6 @@ Python 3, Flask, OpenAI GPT API, Google TTS / ElevenLabs, CMU Pronouncing Dictio
 
 ---
 
-## 🛠️ Local Development Setup
+📄 License
 
-```bash
-# Clone the repository
-git clone https://github.com/your-username/orato-mvp.git
-cd orato-mvp
+This project is intended for educational purposes only. Commercial use is not allowed without written permission.
