@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Orato</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f5f8fb;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .dashboard-header {
+      background-color: #4a90e2;
+      color: white;
+      padding: 2rem;
+      border-radius: 0 0 20px 20px;
+      text-align: center;
+    }
+
+    .dashboard-header h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .dashboard-content {
+      max-width: 1000px;
+      margin: -50px auto 2rem auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .profile-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #4a90e2;
+    }
+
+    .record-btn {
+      background-color: #4a90e2;
+      color: white;
+    }
+
+    .record-btn:hover {
+      background-color: #3a78c2;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="dashboard-header">
+    <h2>Welcome Back, ABC 👋</h2>
+    <p>Your learning journey is getting stronger every day!</p>
+  </div>
+
+  <div class="dashboard-content">
+    <div class="row g-4">
+      <!-- User Profile -->
+      <div class="col-md-4">
+        <div class="card p-3 text-center">
+          <img src="https://i.pravatar.cc/80" class="profile-avatar" alt="User">
+          <h5 class="mb-1">ABC</h5>
+          <p class="text-muted mb-2">B.Tech Student | Learner</p>
+          <p><strong>Email:</strong> ABC@example.com</p>
+        </div>
+      </div>
+
+      <!-- Daily Streaks -->
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5 class="section-title">🔥 Daily Streak</h5>
+          <p>You've practiced <strong>7 days</strong> in a row!</p>
+          <div class="progress mb-2" style="height: 8px;">
+            <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="7" aria-valuemin="0"
+              aria-valuemax="10"></div>
+          </div>
+          <p class="text-muted small">Keep it going to build your confidence!</p>
+        </div>
+      </div>
+
+      <!-- Audio Recording -->
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5 class="section-title">🎙️ Audio Recording</h5>
+          <p>Record your audio practice session.</p>
+          <button class="btn record-btn w-100">Start Audio Recording</button>
+          <p class="text-muted small mt-2">AI will review your tone, clarity, and pace.</p>
+        </div>
+      </div>
+
+      <!-- Video Recording -->
+      <div class="col-md-6">
+        <div class="card p-3">
+          <h5 class="section-title">📹 Video Practice</h5>
+          <p>Record yourself for posture and confidence checks.</p>
+          <button class="btn record-btn w-100 mb-2" onclick="startVideo()">Start Video Recording</button>
+          <video id="videoPreview" autoplay muted></video>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Section: Insights -->
+    <div class="row mt-4">
+      <div class="col-12">
+        <div class="card p-4">
+          <h5 class="section-title">📈 Progress Insights</h5>
+          <ul>
+            <li>⚡ Improved fluency by 15%</li>
+            <li>📅 Practiced 18 out of 21 days this month</li>
+            <li>🎧 Listened to 12 sample audios</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function startVideo() {
+      navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+        .then(stream => {
+          const video = document.getElementById('videoPreview');
+          video.srcObject = stream;
+        })
+        .catch(error => {
+          alert("Could not access camera. Please allow camera permission.");
+          console.error(error);
+        });
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
