@@ -1,4 +1,4 @@
-# Orato  – AI-Powered English Training Website
+# Orato  – An AI-Powered English Training Website
 
 **Orato** is an AI-driven web platform designed to help users improve their spoken English skills through:
 
